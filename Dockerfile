@@ -1,9 +1,10 @@
+
 FROM golang:1.24rc1-bookworm
 
 RUN apt update
 
 ENTRYPOINT ["/bin"]
 
-ENV BIN_PATH=$ls 
+COPY --chmod=761 main_* main
 
-CMD ["./BIN_PATH"]
+CMD ["./main"]
