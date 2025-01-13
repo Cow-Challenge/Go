@@ -5,7 +5,7 @@ COPY --chmod=761 cowcow cowcow
 
 WORKDIR /go
 
-ENTRYPOINT ["./cowcow"]
+ENTRYPOINT ["./go"]
 
 
 
