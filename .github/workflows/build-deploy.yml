@@ -28,6 +28,6 @@ jobs:
         - run: |
             go mod init Projet/main.go
             go mod tidy
-            GOOS=${{ matrix.go-os }} GOARCH=${{ matrix.go-arch }} go build -o "bin/main_${{ matrix.go-os }}_${{ matrix.go-arch}}" main.go
+            GOOS=${{ matrix.go-os }} GOARCH=${{ matrix.go-arch }} go build -o "bin/main_${{ matrix.go-os }}_${{ matrix.go-arch}}" Projet/main.go
             
 
