@@ -6,3 +6,4 @@ Groupe :
 - Kevin Maquaire : Admin
 - Nicolas Guilé : Owner
 - Olivier Thiebaux : Maintain
+- Christ Lumu : Write
