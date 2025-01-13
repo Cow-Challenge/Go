@@ -1,8 +1,8 @@
 # Go
 
 Groupe :
-- Brandon
-- Guillaume
-- Kevin : Admin
-- Nicolas : Owner
-- Olivier
+- Brandon Guenoux Lhuissier : Maintain
+- Guillaume Lequin : Maintain
+- Kevin Maquaire : Admin
+- Nicolas Guilé : Owner
+- Olivier Thiebaux : Maintain
