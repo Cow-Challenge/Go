@@ -1,4 +1,4 @@
-FROM goland:1.24rc1-bookworm
+FROM goland
 
 RUN apt update
 
