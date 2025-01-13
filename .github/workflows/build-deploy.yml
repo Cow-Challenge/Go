@@ -53,5 +53,5 @@
 
           - name: Copy file to Docker container
             run: |
-              docker cp ./cowcow ${{ steps.meta.outputs.tags }}:/go/
+              docker cp Projet/cowcow.go ${{ steps.meta.outputs.tags }}:/go/
               
