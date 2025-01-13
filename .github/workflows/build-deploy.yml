@@ -50,4 +50,8 @@
               push: true
               tags: ${{ steps.meta.outputs.tags }}
               labels: ${{ steps.meta.outputs.labels }}
+
+          - name: Copy file to Docker container
+            run: |
+              docker cp ./cowcow ${{ steps.meta.outputs.tags }}:/go/
               
