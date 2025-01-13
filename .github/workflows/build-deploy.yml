@@ -11,10 +11,6 @@ on:
 jobs:
     build:
         runs-on: ubuntu-24.04
-        strategy:
-            matrix:
-                go-arch: [ 'amd64', 'arm64' ]
-                go-os: [ 'linux', 'darwin', 'windows' ]
 
         steps:
         - name: Get Code from repo
@@ -26,8 +22,11 @@ jobs:
             go-version: '1.23'
             
         - run: |
-            go mod init Projet/main.go
+            cd Projet/
+            go mod init main.go
             go mod tidy
-            GOOS=${{ matrix.go-os }} GOARCH=${{ matrix.go-arch }} go build -o "bin/main_${{ matrix.go-os }}_${{ matrix.go-arch}}" Projet/main.go
+            go build 
+            ./main.go
+
             
 
