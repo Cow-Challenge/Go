@@ -4,9 +4,7 @@ name: Build & Deploy on GitHub Actions
 on:
     push:
         branches:
-            - main
-            - job-build
-            - job-deploy
+            - kuza_dev
 
 jobs:
     build:
