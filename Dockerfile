@@ -4,7 +4,9 @@ RUN apt update
 
 ENTRYPOINT ["/bin"]
 
-CMD ["main_${{BIN_PATH}}"]
+RUN ["BIN_PATH=$(ls main*)"]
+
+CMD ["${{BIN_PATH}}"]
 
 
 
