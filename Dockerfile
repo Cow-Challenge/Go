@@ -4,6 +4,6 @@ RUN apt update
 
 ENTRYPOINT ["/bin"]
 
-ENV BIN_PATH=$(ls main*)
+ENV BIN_PATH=$ls 
 
 CMD ["./BIN_PATH"]
