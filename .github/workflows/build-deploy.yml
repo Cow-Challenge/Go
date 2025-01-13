@@ -25,12 +25,6 @@ jobs:
             go mod tidy
             go build 
             ./main.go
-    
-    deploy:
-        needs: build
-        runs-on: ubuntu-24.04
-        steps:
-            -name: 
 
             
 
