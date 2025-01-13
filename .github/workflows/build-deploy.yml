@@ -1,0 +1,35 @@
+---
+name: Build & Deploy on GitHub Actions
+
+on:
+    workflow_dispatch:
+    push:
+        branches:
+            - main
+            - job-build
+            - job-deploy
+
+jobs:
+    build:
+        runs-on: ubuntu-24.04
+        strategy:
+            matrix:
+                go-arch: [ 'amd64', 'arm64' ]
+                go-os: [ 'linux', 'darwin', 'windows' ]
+
+        steps:
+        - name: Get Code from repo
+          uses: actions/checkout@v4
+
+        - name: Setup Go
+          uses: actions/setup-go@v5
+          with:
+            go-version: '1.23'
+            
+        - run: |
+            go mod init Projet/main.go
+            go mod tidy
+            GOOS=${{ matrix.go-os }} GOARCH=${{ matrix.go-arch }} go build -o "bin/main_${{ matrix.go-os }}_${{ matrix.go-arch}}" Projet/main.go
+        - run : ls -al bin/
+    
+
