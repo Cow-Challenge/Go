@@ -1,12 +1,12 @@
 FROM golang:1.24rc1-bookworm
 
 RUN apt update
+COPY main_* main
 
-ENTRYPOINT ["/bin"]
+WORKDIR /go
 
-COPY --chmod=761 main_* main
+ENTRYPOINT ["./main"]
 
-CMD ["./main"]
 
 
 
