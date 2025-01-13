@@ -2,6 +2,7 @@
 name: Build & Deploy on GitHub Actions
 
 on:
+    workflow_dispatch:
     push:
         branches:
             - main
