@@ -6,6 +6,7 @@ on:
     push:
         branches:
             - main
+            - dev
 env:
   ENVIRONMENT: Prod
   REGISTRY: docker.io
@@ -15,8 +16,8 @@ jobs:
         runs-on: ubuntu-24.04
         strategy:
             matrix:
-                go-arch: [ 'amd64' ]
-                go-os: [ 'linux' ]
+                go-arch: [ 'amd64', 'arm64' ]
+                go-os: [ 'linux', 'darwin', 'windows' ]
 
         steps:
         - name: Get Code from repo
@@ -46,9 +47,10 @@ jobs:
             password: ${{ secrets.DOCKERHUB_TOKEN }}
         
         - name: Build and push
+          if: ${{ matrix.go-os == 'linux'}}
           uses: docker/build-push-action@v6
           with:
             context: .
             push: true
-            tags: ${{ steps.meta.outputs.tags }}
+            tags: ${{ steps.meta.outputs.tags }}_${{ matrix.go-os }}_${{ matrix.go-arch}}
             labels: ${{ steps.meta.outputs.labels }}
