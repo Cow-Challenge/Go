@@ -51,6 +51,5 @@ jobs:
           with:
             context: .
             push: true
-            tags: [${{ matrix.go-os }}_${{ matrix.go-arch}}
-,${{ steps.meta.outputs.tags }}]
+            tags: ${{ steps.meta.outputs.tags }}_${{ matrix.go-os }}_${{ matrix.go-arch}}
             labels: ${{ steps.meta.outputs.labels }}
