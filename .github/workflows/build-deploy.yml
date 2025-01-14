@@ -16,8 +16,8 @@ jobs:
         runs-on: ubuntu-24.04
         strategy:
             matrix:
-                go-arch: [ 'amd64' ]
-                go-os: [ 'linux' ]
+                go-arch: [ 'amd64', 'arm64' ]
+                go-os: [ 'linux', 'darwin', 'windows' ]
 
         steps:
         - name: Get Code from repo
@@ -51,5 +51,6 @@ jobs:
           with:
             context: .
             push: true
-            tags: ${{ steps.meta.outputs.tags }}
+            tags: [${{ matrix.go-os }}_${{ matrix.go-arch}}
+,${{ steps.meta.outputs.tags }}]
             labels: ${{ steps.meta.outputs.labels }}
