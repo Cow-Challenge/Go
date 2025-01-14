@@ -6,6 +6,7 @@ on:
     push:
         branches:
             - main
+            - dev
 env:
   ENVIRONMENT: Prod
   REGISTRY: docker.io
@@ -37,7 +38,7 @@ jobs:
           uses: docker/metadata-action@v5
           with:
             images: |
-              ${{ env.REGISTRY }}/${{ vars.DOCKERHUB_USERNAME }}/goCow
+              ${{ env.REGISTRY }}/${{ vars.DOCKERHUB_USERNAME }}/goCow_${{ matrix.go-os }}_${{ matrix.go-arch}}
 
         - name: Login to Docker Hub
           uses: docker/login-action@v3
