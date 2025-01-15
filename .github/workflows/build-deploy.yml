@@ -7,7 +7,6 @@ on:
           name:
             type: string
             description: Choose custom label
-          message:
             required: true
     schedule:
       - cron: "0 1 * * *"
@@ -61,4 +60,4 @@ jobs:
             context: .
             push: true
             tags: ${{ steps.meta.outputs.tags }}_${{ matrix.go-os }}_${{ matrix.go-arch}}
-            labels: ${{ github.event.inputs.message }} || ${{ steps.meta.outputs.labels }}
+            labels: ${{ github.event.inputs.name }} || ${{ steps.meta.outputs.labels }}
