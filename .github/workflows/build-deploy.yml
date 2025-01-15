@@ -3,6 +3,12 @@ name: Build & Deploy on GitHub Actions
 
 on:
     workflow_dispatch:
+        inputs:
+          name:
+            type: string
+            description: Choose custom label
+          message:
+            required: true
     schedule:
       - cron: "0 1 * * *"
     push:
@@ -55,4 +61,4 @@ jobs:
             context: .
             push: true
             tags: ${{ steps.meta.outputs.tags }}_${{ matrix.go-os }}_${{ matrix.go-arch}}
-            labels: ${{ steps.meta.outputs.labels }}
+            labels: ${{ github.event.inputs.message }} || ${{ steps.meta.outputs.labels }}
